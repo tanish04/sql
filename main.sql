@@ -277,4 +277,11 @@ LEFT JOIN (
 ) AS e ON s.SocID = e.SID;
 
 
+--Q2
+ CREATE USER 'db_admin' IDENTIFIED BY 'secure_password';
+ CREATE ROLE 'db_admin_role';
+ GRANT SELECT, INSERT, UPDATE, DELETE ON college_db.* TO 'db_admin_role';
+ REVOKE DELETE ON college_db.ENROLLMENT FROM 'db_admin_role';
+CREATE INDEX idx_student_name ON college_db.STUDENT (StudentName);2222
+
 
