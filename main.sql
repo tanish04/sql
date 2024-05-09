@@ -163,6 +163,7 @@ SELECT s.StudentName, e.SocName
 FROM STUDENT s
 JOIN ENROLLMENT e ON s.RollNo = e.RollNo;
 
+
 -- 16. Find names of students who are enrolled in any of the three societies ‘Debating’, ‘Dancing’ and ‘Sashakt’.
 SELECT DISTINCT s.StudentName
 FROM STUDENT s
@@ -256,9 +257,9 @@ WHERE YEAR(s.DOB) = 2001;
 -- 29. Count all societies whose name starts with ‘S’ and ends with ‘t’ and at least 5 students are enrolled in the society.
 SELECT COUNT(*)
 FROM (
-    SELECT SID
+    SELECT SocID
     FROM SOCIETY
-    WHERE SocName LIKE 'S%t' AND SID IN (
+    WHERE SocName LIKE 'S%t' AND SocID IN (
         SELECT SID
         FROM ENROLLMENT
         GROUP BY SID
